@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mapa Szkoły</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo Szkoły">
+    </div>
+    <h1>Interaktywna mapa Zespołu Szkoł Ponadpodstawowych nr 2 Centrum Kształcenia Zawodowego im. Tadeusza Kościuszki w Łowiczu</h1>
+  </nav>
+  <div class="container">
+    <aside>
+      <h2>Budynek</h2>
+      <ul>
+        <li onclick="highlightBuilding('A')">Budynek A</li>
+        <li onclick="highlightBuilding('B')">Budynek B</li>
+        <li onclick="highlightBuilding('C')">Budynek C</li>
+      </ul>
+    </aside>
+    <div id="map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>

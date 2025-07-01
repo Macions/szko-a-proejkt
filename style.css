@@ -1,0 +1,77 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+nav {
+  background-color: #00672a;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  font-size: 18px;
+}
+nav .logo{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .logo img {
+  width: 90px;
+  height: 90px;
+  margin-right: 13px;
+  /* display: none; */
+  z-index: 2;
+}
+
+nav .logo::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 90px;
+  background: white;
+  z-index: 1;
+  border-radius: 100%;
+}
+.container {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+aside {
+  width: 200px;
+  background: #f2f2f2;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+aside h2 {
+  margin-top: 0;
+}
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+aside li {
+  padding: 6px;
+  cursor: pointer;
+}
+aside li:hover {
+  background: #e0e0e0;
+}
+#map {
+  flex-grow: 1;
+}
+.marker-highlight {
+  background-color: yellow !important;
+  border: 2px solid red;
+  border-radius: 50%;
+}
+
+.leaflet-control-attribution {
+  display: none !important;
+}
