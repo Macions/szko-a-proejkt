@@ -161,7 +161,7 @@ aside li:hover {
   }
 
   aside li {
-    font-size: 1rem;
+    font-size: 1.0rem;
     padding: 10px 8px;
   }
 }
