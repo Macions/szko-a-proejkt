@@ -4,74 +4,164 @@ body, html {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
 }
+
 nav {
   background-color: #00672a;
   color: white;
-  padding: 10px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100vw;
   font-size: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-nav .logo{
+
+nav .logo {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
+
 nav .logo img {
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   margin-right: 13px;
-  /* display: none; */
   z-index: 2;
 }
 
-nav .logo::before{
+nav .logo::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   background: white;
   z-index: 1;
   border-radius: 100%;
 }
+
+nav h1 {
+  flex-grow: 1;
+  font-size: 1.2rem;
+  min-width: 0; /* pozwala na łamanie tekstu */
+  margin: 0;
+}
+
 .container {
   display: flex;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 90px); /* nav trochę większy więc zmniejszamy */
+  overflow: hidden; /* żeby nic nie wychodziło poza */
+  flex-wrap: nowrap;
 }
+
+/* Sidebar */
 aside {
-  width: 200px;
+  width: 220px;
   background: #f2f2f2;
-  padding: 10px;
+  padding: 15px 10px;
   border-right: 1px solid #ccc;
+  box-sizing: border-box;
+  overflow-y: auto; /* jeśli dużo elementów */
+  min-width: 160px;
 }
+
 aside h2 {
   margin-top: 0;
+  font-size: 1.3rem;
 }
+
 aside ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
+
 aside li {
-  padding: 6px;
+  padding: 10px 8px;
   cursor: pointer;
+  border-radius: 5px;
+  user-select: none;
+  transition: background-color 0.25s ease;
+  font-size: 1rem;
 }
+
 aside li:hover {
   background: #e0e0e0;
 }
+
+/* Mapa */
 #map {
   flex-grow: 1;
+  height: 100%;
+  min-height: 300px;
+  /* ważne żeby mapka miała wysokość i rosła */
 }
+
+/* Klasy pomocnicze */
 .marker-highlight {
   background-color: yellow !important;
   border: 2px solid red;
   border-radius: 50%;
 }
 
+/* Wyłącz atrybucję leaflet */
 .leaflet-control-attribution {
   display: none !important;
+}
+
+/* Responsywność - mobilki i tablety */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  aside {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    min-width: auto;
+    max-height: 150px;
+  }
+
+  #map {
+    height: 60vh; /* mapka zajmuje 60% wysokości widoku */
+  }
+
+  nav {
+    justify-content: center;
+    text-align: center;
+    padding: 10px 5px;
+  }
+
+  nav .logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+  }
+
+  nav h1 {
+    font-size: 1rem;
+  }
+
+  aside li {
+    font-size: 1.1rem;
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav h1 {
+    font-size: 0.9rem;
+  }
+
+  aside li {
+    font-size: 1rem;
+    padding: 10px 8px;
+  }
 }
